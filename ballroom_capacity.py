@@ -3,6 +3,8 @@
 # and a pie chart of the attendee demographics.
 
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")  # non-interactive backend; figures are saved to PNG files
 import matplotlib.pyplot as plt
 
 # --- Print Student ID -------------------------------------------------
@@ -27,16 +29,21 @@ print("\nBallroom Capacity Table")
 print(capacity_table.to_string(index=False))
 
 # --- Bar graph of ballroom capacities ---------------------------------
-# NOTE: Close this bar graph window before the pie chart will show.
+plt.figure()
 plt.bar(ballrooms, capacities, color=["steelblue", "seagreen", "indianred"])
 plt.title("Capacity of Each Ballroom")
 plt.xlabel("Ballroom")
 plt.ylabel("Number of People")
-plt.show()
+plt.savefig("ballroom_bar_graph.png")
+plt.close()
+print("\nSaved bar graph to ballroom_bar_graph.png")
 
 # --- Pie chart of attendee demographics -------------------------------
+plt.figure()
 plt.pie(demographic_counts, labels=demographics, autopct="%1.1f%%",
         colors=["gold", "lightskyblue", "lightcoral"])
 plt.title("Attendee Breakdown for the Day")
 plt.axis("equal")  # keeps the pie chart circular
-plt.show()
+plt.savefig("attendee_pie_chart.png")
+plt.close()
+print("Saved pie chart to attendee_pie_chart.png")
