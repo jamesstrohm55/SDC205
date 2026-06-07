@@ -29,7 +29,7 @@ while userGuess != secretNumber:
         print(f"\nCongratulations, {userName}! You guessed the correct number!")
 
 print(f"\nIt took you {numTries} {'try' if numTries == 1 else 'tries'} to guess correctly.")
-print(f"Student ID: {studentId}")
+print(f"Student ID: jamstr4441")
 
 print("\n--- Output from the 'while' loop: ---")
 whileValue = userGuess
